@@ -1,0 +1,46 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+alembic
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+reportlab
+opencv-python-headless
+Pillow>=10.4.0
+pytesseract
+easyocr
+paddlepaddle>=3.3.0
+paddleocr>=3.7.0
+pdf2image
+pdfplumber
+spacy
+transformers
+scikit-learn
+numpy
+httpx
+python-dotenv
+email-validator
+
+# ── Multi-agent orchestration ──────────────────────────────────────────
+crewai
+crewai-tools
+chromadb
+
+# ── ML Fraud Detection ─────────────────────────────────────────────────
+xgboost
+shap
+imbalanced-learn
+joblib
+pandas
+
+# ── LLM Provider – Google Gemini (via LiteLLM) ────────────────────────
+google-generativeai>=0.7.0
+litellm
+
+# ── Hybrid RAG + Reranking Pipeline ───────────────────────────────────
+rank-bm25
+faiss-cpu
+sentence-transformers
