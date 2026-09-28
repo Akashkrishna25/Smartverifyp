@@ -1,6 +1,18 @@
 """Application configuration via environment variables."""
-from pydantic_settings import BaseSettings
+import os
 from typing import List
+
+from pydantic import Field
+from pydantic_settings import BaseSettings
+
+
+def _default_database_url() -> str:
+    """Use a local Postgres default unless the environment overrides it."""
+    return os.getenv(
+        "DATABASE_URL",
+        "postgresql://postgres:NewPassword123@localhost:5432/smartverify",
+    )
+
 
 class Settings(BaseSettings):
     APP_NAME: str = "SmartVerify"
@@ -10,7 +22,7 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 480
 
-    DATABASE_URL: str = "postgresql://postgres:admin@db:5432/smartverify"
+    DATABASE_URL: str = Field(default_factory=_default_database_url)
     ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost"]
 
     UPLOAD_DIR: str = "/app/uploads"
